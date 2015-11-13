@@ -1,0 +1,64 @@
+body {
+    background: lightgray;
+}
+
+#wrap {
+    margin: 50px;
+    text-align: center;
+    min-height: 400px;
+}
+
+#field {
+    margin: 0 auto;
+    padding: 20px;
+    background: yellow;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+
+#field > table {
+    margin: 0 auto;
+    background: lightblue;
+}
+
+#field > table td {
+    border: 1px solid blue;
+    width: 25px;
+    height: 25px;
+}
+
+#field > table td.open {
+    background: white;
+}
+
+#field > table td.bomb {
+    background: url("/img/bomb.png");
+    background-size: cover;
+}
+
+#field > table td.bombQ {
+    background: url("/img/bombQ.png");
+    background-size: cover;
+}
+
+#field > table td.q {
+    background: url("/img/Q.png");
+    background-size: cover;
+}
+
+#field > table td:not(.open):hover {
+    opacity: .7;
+}
+
+#field > table tr td:not(:first-child) {
+    border-left: none;
+}
+
+#field > table tr:not(:first-child) td {
+    border-top: none;
+}
+
+#countBomb {
+    margin-bottom: 10px;
+}
+
