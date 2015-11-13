@@ -5,8 +5,10 @@ window.onload = function(e){
     function Saper() {
         self = this;
         this.table = document.querySelector('#field > table');
+        this.disabler = document.querySelector('#field #disabler');
         this.elCountBomb = document.querySelector('#countBomb > strong');
         this.settings = document.querySelector('#settings');
+        this.elMessage = document.querySelector('#message');
 
         this.level = null;
         this.m = null;
@@ -28,6 +30,14 @@ window.onload = function(e){
 
         this.fieldCheckBomb = function(i, j) {
             return self.field[i][j].isBomb
+        };
+
+        this.gameOver = function() {
+            self.table.style.opacity = .3;
+            self.disabler.style.display = 'block';
+            self.elCountBomb.parentNode.style.display = '';
+            self.elMessage.style.display = 'block';
+            self.elMessage.innerHTML = 'Вы програли. Нажмите F5'
         };
 
         this.renderField = function() {
@@ -100,6 +110,7 @@ window.onload = function(e){
             self.field[i][j].status = 1;
             if (self.field[i][j].isBomb) {
                 elem.className = 'bomb open';
+                self.gameOver();
             } else {
                 elem.innerHTML = self.field[i][j].around ? self.field[i][j].around : '';
                 elem.className = 'open';
@@ -266,17 +277,15 @@ window.onload = function(e){
             self.renderField();
 
             self.elCountBomb.innerHTML = self.countBomb;
-            self.elCountBomb.parentNode.style.display = '';
+            self.elCountBomb.parentNode.style.display = 'block';
             self.countBombChecked = 0;
 
             console.log( self.field);
         };
 
-
         this.init = function() {
             this.initTable();
             this.initSettings();
-            self.elCountBomb.parentNode.style.display = 'none';
         };
     }
 

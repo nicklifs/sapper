@@ -7,14 +7,17 @@
 </head>
 <body>
     <div id="wrap">
-        <div id="settings">
-            <button data-level="0">Новичок (9x9 ячеек)</button>
-            <button data-level="1">Любитель (9x16 ячеек)</button>
-            <button data-level="2">Профессионал (16x30 ячеек)</button>
-        </div>
         <div id="field">
+            <div id="settings">
+                <button data-level="0">Новичок (9x9 ячеек)</button>
+                <button data-level="1">Любитель (9x16 ячеек)</button>
+                <button data-level="2">Профессионал (16x30 ячеек)</button>
+            </div>
             <div id="countBomb">Осталось бомб: <strong></strong></div>
-            <table cellspacing="0"></table>
+            <div id="message"></div>
+            <table cellspacing="0">
+                <div id="disabler"></div>
+            </table>
         </div>
     </div>
 

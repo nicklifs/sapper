@@ -19,6 +19,7 @@ body {
 #field > table {
     margin: 0 auto;
     background: lightblue;
+    position: relative;
 }
 
 #field > table td {
@@ -58,7 +59,18 @@ body {
     border-top: none;
 }
 
-#countBomb {
+#countBomb, #message {
     margin-bottom: 10px;
+    display: none;
+}
+
+#disabler {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: gray;
+    z-index: 1;
+    opacity: 0.01;
+    display: none;
 }
 
