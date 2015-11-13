@@ -147,6 +147,10 @@ window.onload = function(e){
                 if (x < 0 || x > self.m - 1 || y < 0 || y > self.n - 1) continue;
 
                 if (false == self.field[x][y].isBomb && 1 != self.field[x][y].status) {
+                    if (self.field[x][y].status == 6) {
+                        self.countBombChecked -= 1;
+                        self.refreshCountBomb();
+                    }
                     self.field[x][y].status = 1;
                     var elem = self.table.querySelector('td[data-i="' + x + '"][data-j="' + y + '"]');
                     elem.className = 'open';
