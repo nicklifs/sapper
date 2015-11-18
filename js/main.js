@@ -98,6 +98,27 @@ window.onload = function(e){
             }*/
         };
 
+        this.checkVictory = function() {
+            var hiddenCell = 0;
+
+            for (var i = 0; i < self.m; i++) {
+                for (var j = 0; j < self.n; j++) {
+                    if(self.field[i][j].status != 1) hiddenCell++;
+                }
+            }
+
+            if (hiddenCell == self.countBomb) {
+                this.Victory();
+            }
+        };
+
+        this.Victory = function() {
+            self.table.style.opacity = .3;
+            self.disabler.style.display = 'block';
+            self.elCountBomb.parentNode.style.display = '';
+            self.elMessage.style.display = 'block';
+            self.elMessage.innerHTML = 'Вы выйграли. Нажмите F5'
+        };
 
         this.step = function(elem) {
             var i = parseInt(elem.getAttribute('data-i'));
@@ -120,6 +141,8 @@ window.onload = function(e){
                     self.checkEmptyAround(i, j);
                 }
             }
+
+            this.checkVictory();
         };
 
         this.changeStatus = function(elem) {
